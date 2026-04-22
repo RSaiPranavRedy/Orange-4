@@ -15,7 +15,11 @@
 #include <string.h>
 #include <dirent.h>
 #include <sys/stat.h>
+<<<<<<< HEAD
 #include "index.h"
+=======
+
+>>>>>>> origin/main
 // ─── Mode Constants ─────────────────────────────────────────────────────────
 
 #define MODE_FILE      0100644
@@ -33,7 +37,10 @@ uint32_t get_file_mode(const char *path) {
     if (st.st_mode & S_IXUSR) return MODE_EXEC;
     return MODE_FILE;
 }
+<<<<<<< HEAD
 int index_load(Index *index) __attribute__((weak));
+=======
+>>>>>>> origin/main
 
 // Parse binary tree data into a Tree struct safely.
 // Returns 0 on success, -1 on parse error.
@@ -130,6 +137,7 @@ int tree_serialize(const Tree *tree, void **data_out, size_t *len_out) {
 //   - object_write    : save that binary buffer to the store as OBJ_TREE
 //
 // Returns 0 on success, -1 on error.
+<<<<<<< HEAD
 int object_write(ObjectType type, const void *data, size_t len, ObjectID *id_out);
 // Recursively build one tree object for each directory level in the index.
 
@@ -247,3 +255,11 @@ int tree_from_index(ObjectID *id_out) {
     return write_tree_level(&index, "", id_out);
 }
 
+=======
+int tree_from_index(ObjectID *id_out) {
+    // TODO: Implement recursive tree building
+    // (See Lab Appendix for logical steps)
+    (void)id_out;
+    return -1;
+}
+>>>>>>> origin/main

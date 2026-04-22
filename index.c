@@ -34,8 +34,11 @@ IndexEntry* index_find(Index *index, const char *path) {
     }
     return NULL;
 }
+<<<<<<< HEAD
 int object_write(ObjectType type, const void *data, size_t len, ObjectID *id_out);
 uint32_t get_file_mode(const char *path);
+=======
+>>>>>>> origin/main
 
 // Remove a file from the index.
 // Returns 0 on success, -1 if path not in index.
@@ -135,6 +138,7 @@ int index_status(const Index *index) {
 //   - fopen (with "r"), fscanf, fclose : reading the text file line by line
 //   - hex_to_hash                      : converting the parsed string to ObjectID
 //
+<<<<<<< HEAD
 
 // Returns 0 on success, -1 on error.
 // Load staged entries from the text index file into memory.
@@ -199,6 +203,14 @@ static int compare_index_entries(const void *a, const void *b) {
     const IndexEntry *entry_b = (const IndexEntry *)b;
 
   return strcmp(entry_a->path, entry_b->path);
+=======
+// Returns 0 on success, -1 on error.
+int index_load(Index *index) {
+    // TODO: Implement index loading
+    // (See Lab Appendix for logical steps)
+    (void)index;
+    return -1;
+>>>>>>> origin/main
 }
 
 // Save the index to .pes/index atomically.
@@ -211,6 +223,7 @@ static int compare_index_entries(const void *a, const void *b) {
 //   - rename                           : atomically moving the temp file over the old index
 //
 // Returns 0 on success, -1 on error.
+<<<<<<< HEAD
 // Save the index through a temporary file before atomically renaming it.
 
 int index_save(const Index *index) {
@@ -274,6 +287,15 @@ int index_save(const Index *index) {
     return 0;
 }
   
+=======
+int index_save(const Index *index) {
+    // TODO: Implement atomic index saving
+    // (See Lab Appendix for logical steps)
+    (void)index;
+    return -1;
+}
+
+>>>>>>> origin/main
 // Stage a file for the next commit.
 //
 // HINTS - Useful functions and syscalls:
@@ -283,6 +305,7 @@ int index_save(const Index *index) {
 //   - index_find                       : checking if the file is already staged
 //
 // Returns 0 on success, -1 on error.
+<<<<<<< HEAD
 // Stage a regular file by writing its blob and recording its metadata.
 
 int index_add(Index *index, const char *path) {
@@ -353,3 +376,11 @@ int index_add(Index *index, const char *path) {
     return index_save(index);
 }
 
+=======
+int index_add(Index *index, const char *path) {
+    // TODO: Implement file staging
+    // (See Lab Appendix for logical steps)
+    (void)index; (void)path;
+    return -1;
+}
+>>>>>>> origin/main
